@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>de.codesourcery.jsnake</groupId>
+  <artifactId>jsnake</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <javac.source>21</javac.source>
+    <javac.target>21</javac.target>
+    <javac.release>21</javac.release>
+    <maven.compiler.source>${javac.source}</maven.compiler.source>
+    <maven.compiler.target>${javac.target}</maven.compiler.target>
+    <maven.compiler.release>${javac.release}</maven.compiler.release>
+    <enforcer.plugin.version>3.0.0-M1</enforcer.plugin.version>
+    <!-- JVM compiler and runtime options (needed by surefire plugin et al) -->
+    <preview>--enable-preview</preview>
+    <illegalAccess>--add-opens java.base/java.lang=ALL-UNNAMED</illegalAccess>
+    <jdkModules>
+    </jdkModules>
+    <javac.compilation.options1>${preview}</javac.compilation.options1>
+    <javac.compilation.options2>-proc:none</javac.compilation.options2>
+    <java.runtime.options>${preview} ${jdkModules} ${illegalAccess} -Dfile.encoding=${project.build.sourceEncoding}</java.runtime.options>
+  </properties>
+  <dependencies>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <source>${javac.source}</source>
+          <target>${javac.target}</target>
+          <release>${javac.release}</release>
+          <encoding>UTF-8</encoding>
+          <compilerArgs>
+            <arg>${javac.compilation.options1}</arg>
+            <arg>${javac.compilation.options2}</arg>
+          </compilerArgs>
+          <showWarnings>false</showWarnings>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
