@@ -33,7 +33,7 @@ public class Main extends JFrame
     private static final int GRID_X = 20;
     private static final int GRID_Y = 20;
 
-    private static final boolean USE_GAME_CONTROLLER = false;
+    private static final boolean USE_GAME_CONTROLLER = true;
 
     private static final Color SNAKE_COLOR = Color.RED;
     private static final int APPLES_PER_LEVEL = 10;
@@ -253,7 +253,7 @@ public class Main extends JFrame
     }
 
     private int ticksTillMovement() {
-        return Math.max( 1, Math.round( 15 - (level - 1) * 1.5f ) );
+        return Math.max( 1, Math.round( 30 - (level - 1) * 1.5f ) );
     }
 
     private void placeApples() {
@@ -277,6 +277,7 @@ public class Main extends JFrame
         this.level = 1;
         this.gameOver = false;
         this.frameCount = 0;
+        this.applesEaten = 0;
 
         placeApples();
 
